@@ -35,12 +35,13 @@ Node* nalloc(Item item) {
 
 
 void nfree(Node* node) {
-	return;
+	delete node;
 }
 
 
 Node* nclone(Node* node) {
-	return NULL;
+	if (node == nullptr) return nullptr;
+	return nalloc(node->item);
 }
 
 
