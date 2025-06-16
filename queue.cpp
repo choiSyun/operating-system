@@ -26,8 +26,11 @@ void release(Queue* queue) {
 
 
 Node* nalloc(Item item) {
-	// Node »ý¼º, itemÀ¸·Î ÃÊ±âÈ­
-	return NULL;
+	// Node 생성, item으로 초기화
+	Node* node = new Node;
+	node->item = item;
+	node->next = nullptr;
+	return node;
 }
 
 
