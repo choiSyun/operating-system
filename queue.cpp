@@ -113,5 +113,21 @@ Reply dequeue(Queue* queue) {
 }
 
 Queue* range(Queue* queue, Key start, Key end) {
-	return NULL;
+    if (queue == nullptr) return nullptr;
+
+    Queue* new_queue = init();
+    if (new_queue == nullptr) return nullptr;
+
+    Node* curr = queue->head;
+
+    while (curr != nullptr) {
+        Key key = curr->item.key;
+        if (start <= key && key <= end) {
+            // 복제된 노드를 새로운 큐에 enqueue
+            enqueue(new_queue, curr->item);
+        }
+        curr = curr->next;
+    }
+
+    return new_queue;
 }
