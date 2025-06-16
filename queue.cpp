@@ -11,8 +11,18 @@ Queue* init(void) {
 
 
 void release(Queue* queue) {
-	return;
+    if (queue == nullptr) return;
+
+    Node* curr = queue->head;
+    while (curr != nullptr) {
+        Node* temp = curr;
+        curr = curr->next;
+        nfree(temp);  
+    }
+
+    delete queue;  
 }
+
 
 
 Node* nalloc(Item item) {
