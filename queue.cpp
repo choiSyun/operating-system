@@ -3,7 +3,10 @@
 
 
 Queue* init(void) {
-	return NULL;
+    Queue* queue = new Queue;
+    queue->head = nullptr;
+    queue->tail = nullptr;
+    return queue;
 }
 
 
@@ -13,7 +16,7 @@ void release(Queue* queue) {
 
 
 Node* nalloc(Item item) {
-	// Node »ı¼º, itemÀ¸·Î ÃÊ±âÈ­
+	// Node Â»Ã½Â¼Âº, itemÃ€Â¸Â·Ã ÃƒÃŠÂ±Ã¢ÃˆÂ­
 	return NULL;
 }
 
