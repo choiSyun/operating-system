@@ -89,8 +89,27 @@ Reply enqueue(Queue* queue, Item item) {
 }
 
 Reply dequeue(Queue* queue) {
-	Reply reply = { false, NULL };
-	return reply;
+    Reply reply = { false, {0, nullptr} };
+
+    if (queue == nullptr || queue->head == nullptr) {
+        
+        return reply;
+    }
+
+    
+    Node* node_to_remove = queue->head;
+    reply.item = node_to_remove->item;
+    reply.success = true;
+
+    queue->head = node_to_remove->next;
+
+    
+    if (queue->head == nullptr) {
+        queue->tail = nullptr;
+    }
+
+    nfree(node_to_remove);
+    return reply;
 }
 
 Queue* range(Queue* queue, Key start, Key end) {
